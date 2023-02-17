@@ -1,4 +1,4 @@
-export type Config = {
+export type WaveSMSConfig = {
     apiKey: string
     partnerId: number|string
     baseUrl?: string
