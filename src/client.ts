@@ -2,7 +2,9 @@ import { WaveSMSConfig } from "./utils/types";
 import { SMS } from "./repositories/SMS";
 import { log } from "./utils/logger";
 import { Balance } from "./repositories/balance";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
+import { ValidationErr } from "./exceptions/validation.err";
+import { UnauthorizedErr } from "./exceptions/unauthorized.err";
 
 const UNEXPECTED_ERROR_MESSAGE = "An unexpected error occurred while processing your request.";
 
@@ -17,12 +19,25 @@ export class WaveSMS {
     }
 
     makeRequest = async ({ url, method = 'post', data = {} }: { url: string, method?: 'get' | 'post', data?: any }) => {
-        url = `${this.config.baseUrl}${url}`
+        log.info('...[WAVESMS] - Make Request:', { url, method, data })
 
-        log.info('...[WAVESMS]: Make Request', { url, method, data })
+        const http = axios.create({
+            baseURL: this.config.baseUrl,
+            headers: {
+                Accept: 'application/json',
+                ContentType: 'application/json'
+            }
+        });
 
-        return axios[method](url, data).then(({ data }) => data).catch(e => {
-            log.error('...[WAVESMS]: Make Request Error', e);
+        return http[method](url, data).then(({ data }) => data).catch(e => {
+            if(e instanceof AxiosError) {
+                if (e.response?.status === 422) {
+                    throw new ValidationErr(e.response.data.errors)
+                }
+                if (e.response?.status === 401) {
+                    throw new UnauthorizedErr(e.response?.data['response-description'])
+                }
+            }
 
             return {
                 type: "TransportError",
