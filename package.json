@@ -1,0 +1,56 @@
+{
+  "name": "@nabcellent/wavesms",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Websms API Library",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "yarn@3.4.1",
+  "module": "dist/wavesms.es.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "start": "node src/bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.3",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.13.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1",
+    "vite-plugin-dts": "^2.0.0-beta.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/wavesms.es.js"
+    }
+  },
+  "author": {
+    "email": "nabcellent.dev@gmail.com",
+    "name": "Nabcellent",
+    "url": "https://github.com/nabcellent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sidooh/sui-vue.git"
+  },
+  "keywords": [
+    "Library",
+    "WaveSMS",
+    "SMS Marketing",
+    "SMS Api"
+  ]
+}
