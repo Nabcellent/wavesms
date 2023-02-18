@@ -14,6 +14,9 @@
       "require": "./dist/wavesms.umd.cjs"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -39,9 +42,6 @@
     "vite": "^4.1.1",
     "vite-plugin-dts": "^2.0.0-beta.0"
   },
-  "files": [
-    "dist"
-  ],
   "author": {
     "email": "nabcellent.dev@gmail.com",
     "name": "Nabcellent",
