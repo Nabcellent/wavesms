@@ -28,7 +28,7 @@ const wave = new WaveSMS(config);
 - ### SMS
 Enables you to send text messages
 
-1. Send SMS
+#### 1. Send SMS
 ```js
 const response = await wave.sms.text('#WaveSMSTest').to(254123456789).send()
     //  OR
@@ -51,6 +51,12 @@ const response = await wave.sms.text('#WaveSMSTest').to([254123456789]).send()
     }
 ]
 ```
+#### 2. Schedule SMS
+Coming soon
+#### 3. Get Delivery Report
+Coming soon
+
+---
 
 - ### Account
 Enables you to check the balance of your account
@@ -62,3 +68,20 @@ const response = await wave.balance.fetch()
 //  Expected response(number)
 7.33
 ```
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Security
+
+If you discover any security related issues, please email [nabcellent.dev@gmail.com](mailto:nabcellent.dev@gmail.com) instead of using the issue tracker.
+
+## Credits
+
+- [Nabcellent](https://github.com/Nabcellent)
+
+[comment]: <> (- [All Contributors]&#40;../../contributors&#41;)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
