@@ -4,7 +4,8 @@
   "description": "Websms API Library",
   "license": "MIT",
   "packageManager": "yarn@3.4.1",
-  "main": "./dist/wavesms.mjs",
+  "type": "module",
+  "main": "./dist/wavesms.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
