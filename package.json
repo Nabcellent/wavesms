@@ -1,6 +1,6 @@
 {
   "name": "@nabcellent/wavesms",
-  "version": "1.0.14",
+  "version": "2.0.0",
   "description": "Websms API Library",
   "license": "MIT",
   "packageManager": "yarn@3.4.1",
