@@ -20,8 +20,8 @@ app.get('/api', async (req, res, next) => {
             senderId: 'Test'
         })
 
-        // const response = await wave.sms.text('#WaveSMSTest').to(254110039317).send()
-        const response = await wave.balance.fetch()
+        const response = await wave.sms.text('#WaveSMSTest').to([254110039317,254736388405]).send()
+        // const response = await wave.balance.fetch()
 
         res.json(response);
     } catch (e) {

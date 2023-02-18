@@ -8,10 +8,13 @@ export type WaveSMSConfig = {
 export type WaveSMSResponse = {
     'response-code': number,
     'response-description': string,
-    mobile: string
-    clientsmsid: string
-    messageid?: number
+    mobile: number
+    clientsmsid: number
+    messageid?: number | string
+    apikey?: string
+    pass_type?: string
+    message?: string
     networkid?: string
     partnerID?: string
-    shortcode?: null
+    shortcode?: string | null
 }

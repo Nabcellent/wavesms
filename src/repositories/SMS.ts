@@ -22,7 +22,7 @@ export class SMS {
         return this;
     }
 
-    public async send(): Promise<{ responses: WaveSMSResponse[] }> {
+    public async send(): Promise<WaveSMSResponse[]> {
         if (!this.#message) throw new ValidationErr('Please provide a message.')
         if (this.#phones.length <= 0) throw new ValidationErr('Please provide at least one phone number.')
 
@@ -38,11 +38,17 @@ export class SMS {
             }
         })
 
-        return await this.#client.makeRequest({
+        let { responses } = await this.#client.makeRequest({
             url: '/services/sendbulk', data: {
                 count: smsList.length,
                 smslist: smsList
             }
         });
+
+        return responses.map((r: WaveSMSResponse) => r['response-code'] === 1004 ? {
+            'response-code': r['response-code'],
+            'response-description': r['response-description'],
+            ...Object(r.mobile)
+        } : r)
     }
 }
