@@ -5,7 +5,7 @@
   "license": "MIT",
   "packageManager": "yarn@3.4.1",
   "type": "module",
-  "main": "./dist/wavesms.js",
+  "exports": "./dist/wavesms.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
@@ -49,5 +49,8 @@
     "WaveSMS",
     "SMS Marketing",
     "SMS Api"
-  ]
+  ],
+  "engines": {
+    "node": ">=16.16"
+  }
 }
