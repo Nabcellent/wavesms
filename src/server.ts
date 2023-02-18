@@ -16,7 +16,7 @@ app.get('/api', async (req, res, next) => {
     try {
         const wave = new WaveSMS({
             apiKey: "f9b17c5852313b3a5600ed570a736b87",
-            partnerId: "68551"
+            partnerId: "6855"
         })
 
         // const response = await wave.sms.text('#WaveSMSTest').to(254110039317).send()

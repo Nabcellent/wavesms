@@ -8,11 +8,13 @@ export class Balance {
     }
 
     public async fetch() {
-        return await this.#client.makeRequest({
+        const res = await this.#client.makeRequest({
             url: '/services/getbalance', data: {
                 apikey: this.#client.config.apiKey,
                 partnerID: this.#client.config.partnerId
             }
         });
+
+        return { credit: Number(res.credit) }
     }
 }
