@@ -5,9 +5,15 @@
   "license": "MIT",
   "packageManager": "yarn@3.4.1",
   "type": "module",
-  "main": "dist/wavesms.cjs.js",
+  "main": "./dist/wavesms.umd.js",
   "module": "./dist/wavesms.es.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/wavesms.es.js",
+      "require": "./dist/wavesms.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -36,11 +42,6 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/wavesms.es.js"
-    }
-  },
   "author": {
     "email": "nabcellent.dev@gmail.com",
     "name": "Nabcellent",
