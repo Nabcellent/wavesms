@@ -33,7 +33,7 @@ export class SMS {
                 clientsmsid: i,
                 mobile: phone,
                 message: this.#message,
-                shortcode: "Test",
+                shortcode: this.#client.config.senderId,
             }
         })
 
