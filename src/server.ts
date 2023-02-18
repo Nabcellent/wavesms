@@ -3,13 +3,10 @@ import cookieParser from "cookie-parser";
 import { WaveSMS } from "./client";
 import { CustomError } from "./exceptions/custom.err";
 import { log } from "./utils/logger";
-
-let path = require('path');
-let logger = require('morgan');
+import path from "path";
 
 let app: Application = express();
 
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
