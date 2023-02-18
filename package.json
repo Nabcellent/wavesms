@@ -5,7 +5,7 @@
   "license": "MIT",
   "packageManager": "yarn@3.4.1",
   "type": "module",
-  "module": "dist/wavesms.es.js",
+  "module": "./dist/wavesms.es.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
