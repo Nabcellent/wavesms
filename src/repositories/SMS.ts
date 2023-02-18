@@ -48,7 +48,7 @@ export class SMS {
         return responses.map((r: WaveSMSResponse) => r['response-code'] === 1004 ? {
             'response-code': r['response-code'],
             'response-description': r['response-description'],
-            ...Object(r.mobile)
+            mobile: Object(r.mobile).mobile,
         } : r)
     }
 }
