@@ -9,7 +9,7 @@ export default defineConfig({
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
             name: 'wavesms',
-            // formats: ['es', 'cjs'], // adding 'umd' requires globals set to every external module
+            formats: ['es'], // adding 'umd' requires globals set to every external module
             // fileName: format => `wavesms.${format}.js`,
             fileName: 'wavesms',
         },
