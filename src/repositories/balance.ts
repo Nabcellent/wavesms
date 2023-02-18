@@ -15,6 +15,6 @@ export class Balance {
             }
         });
 
-        return { credit: Number(res.credit) }
+        return Number(res.credit)
     }
 }
