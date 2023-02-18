@@ -22,7 +22,7 @@ export class SMS {
         return this;
     }
 
-    public async send(): Promise<WaveSMSResponse> {
+    public async send(): Promise<{ responses: WaveSMSResponse[] }> {
         if (!this.#message) throw new ValidationErr('Please provide a message.')
         if (this.#phones.length <= 0) throw new ValidationErr('Please provide at least one phone number.')
 
