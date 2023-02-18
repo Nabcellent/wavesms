@@ -1,6 +1,6 @@
 # WaveSMS Api
 
-This is a <i>Typescript</i> package that interfaces with [WaveSMS](https://wavesms.com/) SMS Api.
+This is a <i>Typescript</i> package that interfaces with the [WaveSMS](https://wavesms.com/) Api.
 The API enables you to initiate mobile SMS notifications.
 
 ## Documentation
