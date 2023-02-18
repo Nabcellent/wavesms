@@ -10,7 +10,8 @@ export default defineConfig({
             entry: resolve(__dirname, 'src/index.ts'),
             name: 'wavesms',
             // formats: ['es', 'cjs'], // adding 'umd' requires globals set to every external module
-            fileName: format => `wavesms.${format}.js`,
+            // fileName: format => `wavesms.${format}.js`,
+            fileName: 'wavesms',
         },
         rollupOptions: {
             input: resolve(__dirname, 'src/index.ts')

@@ -5,13 +5,13 @@
   "license": "MIT",
   "packageManager": "yarn@3.4.1",
   "type": "module",
-  "main": "./dist/wavesms.umd.js",
-  "module": "./dist/wavesms.es.js",
+  "main": "./dist/wavesms.umd.cjs",
+  "module": "./dist/wavesms.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/wavesms.es.js",
-      "require": "./dist/wavesms.umd.js"
+      "import": "./dist/wavesms.js",
+      "require": "./dist/wavesms.umd.cjs"
     }
   },
   "scripts": {
