@@ -12,7 +12,7 @@ You can install the package via npm or yarn:
 yarn add @nabcellent/wavesms
 ```
 ### Getting Started
-Initialize the WaveSMS class providing your config.
+Initialize the WaveSMS class with your config.
 ```js
 import { WaveSMS, WaveSMSConfig } from '@nabcellent/wavesms';
 
