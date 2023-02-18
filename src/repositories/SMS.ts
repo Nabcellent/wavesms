@@ -1,5 +1,6 @@
 import { WaveSMS } from "../client";
 import { ValidationErr } from "../exceptions/validation.err";
+import { WaveSMSResponse } from "../utils";
 
 export class SMS {
     #client: WaveSMS
@@ -21,7 +22,7 @@ export class SMS {
         return this;
     }
 
-    public async send() {
+    public async send(): Promise<WaveSMSResponse> {
         if (!this.#message) throw new ValidationErr('Please provide a message.')
         if (this.#phones.length <= 0) throw new ValidationErr('Please provide at least one phone number.')
 
