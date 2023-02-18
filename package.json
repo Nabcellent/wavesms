@@ -4,15 +4,14 @@
   "description": "Websms API Library",
   "license": "MIT",
   "packageManager": "yarn@3.4.1",
-  "type": "module",
-  "exports": "./dist/wavesms.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "rm -r ./dist && tsc",
     "preview": "vite preview",
     "version:major": "npm version major",
     "version:minor": "npm version minor",
