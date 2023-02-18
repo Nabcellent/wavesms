@@ -1,4 +1,2 @@
-import { WaveSMS } from './client'
-
-export { WaveSMS }
+export * from './client'
 export * from './utils'
