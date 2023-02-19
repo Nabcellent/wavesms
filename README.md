@@ -51,10 +51,29 @@ const response = await wave.sms.text('#WaveSMSTest').to([254123456789]).send()
     }
 ]
 ```
+
 #### 2. Schedule SMS
-Coming soon
+```js
+const response = await wave.sms.text('#WaveSMSTest').to(254123456789).send(new Date('2023-12-20'))
+```
+
 #### 3. Get Delivery Report
-Coming soon
+```js
+//  Provide Message ID
+const response = await wave.sms.getDeliveryReport("123456789")
+
+//  Expected response
+{
+    "response-code": 200,
+    "message-id": "123456789",
+    "response-description": "Success",
+    "delivery-status": 32,
+    "delivery-description": "DeliveredToTerminal",
+    "delivery-tat": "00:00:06",
+    "delivery-networkid": 1,
+    "delivery-time": "2023-02-18 21:16:22"
+}
+```
 
 ---
 

@@ -5,6 +5,7 @@ import { Balance } from "./repositories/balance";
 import axios, { AxiosError } from "axios";
 import { ValidationErr } from "./exceptions/validation.err";
 import { UnauthorizedErr } from "./exceptions/unauthorized.err";
+import { NotFoundError } from "./exceptions/not-found.err";
 
 const UNEXPECTED_ERROR_MESSAGE = "An unexpected error occurred while processing your request.";
 
@@ -36,6 +37,9 @@ export class WaveSMS {
                 }
                 if (e.response?.status === 401) {
                     throw new UnauthorizedErr(e.response?.data['response-description'])
+                }
+                if (e.response?.status === 404) {
+                    throw new NotFoundError()
                 }
             }
 
