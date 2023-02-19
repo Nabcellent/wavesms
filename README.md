@@ -53,9 +53,11 @@ const response = await wave.sms.text('#WaveSMSTest').to([254123456789]).send()
 ```
 
 #### 2. Schedule SMS
+Provide a Date instance to the send method.
 ```js
 const response = await wave.sms.text('#WaveSMSTest').to(254123456789).send(new Date('2023-12-20'))
 ```
+<small><i>PS: The date must be after current time.</i>🌚</small>
 
 #### 3. Get Delivery Report
 ```js
