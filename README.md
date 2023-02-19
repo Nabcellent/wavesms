@@ -46,7 +46,7 @@ const response = await wave.sms.text('#WaveSMSTest').to([254123456789]).send()
     },
     {
         "response-code": 1004,
-        "response-description": "Low credit units to send message, Current balance 0.00, Required 1",
+        "response-description": "Low credit units...",
         "mobile": "254123456789",
     }
 ]
