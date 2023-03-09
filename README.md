@@ -1,7 +1,7 @@
 # WaveSMS Api
 
 This is a <i>Typescript</i> package that interfaces with the [WaveSMS](https://wavesms.com/) Api.
-The API enables you to initiate mobile SMS notifications.
+The API enables you to initiate mobile Sms notifications.
 
 ## Documentation
 
@@ -25,10 +25,10 @@ let config: WaveSMSConfig = {
 const wave = new WaveSMS(config);
 ```
 
-- ### SMS
+- ### Sms
 Enables you to send text messages
 
-#### 1. Send SMS
+#### 1. Send Sms
 ```js
 const response = await wave.sms.text('#WaveSMSTest').to(254123456789).send()
     //  OR
@@ -37,23 +37,23 @@ const response = await wave.sms.text('#WaveSMSTest').to([254123456789]).send()
 //  Expected responses
 [
     {
-        "respose-code": 200,
-        "response-description": "Success",
-        "mobile": "254123456789",
-        "messageid": 75085465,
-        "clientsmsid": "1234",
-        "networkid": "2"
+        code: 200,
+        description: "Success",
+        mobile: "254123456789",
+        message_id: 75085465,
+        client_sms_id: "1234",
+        network_id: "2"
     },
     {
-        "response-code": 1004,
-        "response-description": "Low credit units...",
-        "mobile": "254123456789",
+        code: 1004,
+        description: "Low credit units...",
+        mobile: "254123456789",
     }
 ]
 ```
 
-#### 2. Schedule SMS
-Provide a Date instance to the send method.
+#### 2. Schedule Sms
+Provide a Moment or Date instance to the send method.
 ```js
 const response = await wave.sms.text('#WaveSMSTest').to(254123456789).send(new Date('2023-12-20'))
 ```
@@ -66,9 +66,9 @@ const response = await wave.sms.getDeliveryReport("123456789")
 
 //  Expected response
 {
-    "response-code": 200,
-    "message-id": "123456789",
-    "response-description": "Success",
+    response_code: 200,
+    message_id: "123456789",
+    description: "Success",
     "delivery-status": 32,
     "delivery-description": "DeliveredToTerminal",
     "delivery-tat": "00:00:06",

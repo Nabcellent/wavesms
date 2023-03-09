@@ -16,7 +16,7 @@ export type WaveSMSRequest = {
     timeToSend?: number
 }
 
-export type WaveSMSResponse = {
+export type WaveSMSRawResponse = {
     'response-code': number,
     'response-description': string,
     mobile: number
@@ -30,7 +30,21 @@ export type WaveSMSResponse = {
     shortcode?: string | null
 }
 
-export type WaveSMSDeliveryReport = {
+export type WaveSMSResponse = {
+    code: number,
+    description: string,
+    mobile: number
+    client_sms_id: number
+    message_id?: number | string
+    api_key?: string
+    pass_type?: string
+    message?: string
+    network_id?: string
+    partner_id?: string
+    shortcode?: string | null
+}
+
+export type WaveSMSRawDeliveryReport = {
     "response-code": number,
     "message-id": string,
     "response-description": string,
@@ -39,4 +53,15 @@ export type WaveSMSDeliveryReport = {
     "delivery-tat": string,
     "delivery-networkid": number,
     "delivery-time": Date
+}
+
+export type WaveSMSDeliveryReport = {
+    code: number,
+    message_id: string,
+    description: string,
+    delivery_status: number,
+    delivery_description: string,
+    delivery_tat: string,
+    delivery_network_id: number,
+    delivery_time: Date
 }

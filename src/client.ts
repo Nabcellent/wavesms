@@ -1,17 +1,18 @@
-import { WaveSMSConfig } from "./utils/types";
-import { SMS } from "./repositories/SMS";
+import { WaveSMSConfig } from "./utils";
+import { Sms } from "./repositories/sms";
 import { log } from "./utils/logger";
 import { Balance } from "./repositories/balance";
 import axios, { AxiosError } from "axios";
 import { ValidationErr } from "./exceptions/validation.err";
 import { UnauthorizedErr } from "./exceptions/unauthorized.err";
 import { NotFoundError } from "./exceptions/not-found.err";
+import { BadRequestError } from "./exceptions/bad-request.err";
 
 const UNEXPECTED_ERROR_MESSAGE = "An unexpected error occurred while processing your request.";
 
 export class WaveSMS {
     config: WaveSMSConfig
-    sms: SMS = new SMS(this)
+    sms: Sms = new Sms(this)
     balance: Balance = new Balance(this)
 
     constructor(config: WaveSMSConfig) {
@@ -43,11 +44,7 @@ export class WaveSMS {
                 }
             }
 
-            return {
-                type: "TransportError",
-                message: UNEXPECTED_ERROR_MESSAGE,
-                rootCause: e
-            }
+            throw new BadRequestError(e.message || 'Something went wrong')
         })
     }
 }
