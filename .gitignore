@@ -33,5 +33,7 @@ dist-ssr
 .pnp.*
 
 y.hide
-
 src/server.ts
+
+/coverage
+coverage.*
