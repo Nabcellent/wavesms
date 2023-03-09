@@ -10,7 +10,7 @@
 
 [build-badge]: https://img.shields.io/github/actions/workflow/status/nabcellent/wavesms/test.yml?branch=main&logo=github&style=flat-square
 [build]: https://github.com/nabcellent/wavesms/actions?query=workflow%3Avalidate
-[coverage-badge]: https://img.shields.io/codecov/c/github/nabcellent/wavesms.svg?style=flat-square
+[coverage-badge]: https://img.shields.io/codecov/c/github/nabcellent/wavesms.svg?token=UR29MJXL82&style=flat-square
 [coverage]: https://codecov.io/github/nabcellent/wavesms/
 [version-badge]: https://img.shields.io/npm/v/@nabcellent/wavesms.svg?style=flat-square
 [package]: https://www.npmjs.com/package/@nabcellent/wavesms
