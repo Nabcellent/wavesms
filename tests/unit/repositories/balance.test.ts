@@ -2,17 +2,17 @@ import { afterEach, beforeAll, describe, expect, it, SpyInstance, vi } from "vit
 import { Balance } from "../../../src/repositories/balance";
 import { WaveSMS } from "../../../src";
 
-let websms: WaveSMS, balance: Balance, makeRequest: SpyInstance;
+let wavesms: WaveSMS, balance: Balance, makeRequest: SpyInstance;
 
 describe('balance', () => {
     beforeAll(() => {
-        websms = new WaveSMS({
+        wavesms = new WaveSMS({
             apiKey: "apiKey",
             partnerId: "partnerId",
             senderId: 'senderId'
         })
-        balance = websms.balance
-        makeRequest = vi.spyOn(websms, 'makeRequest')
+        balance = wavesms.balance
+        makeRequest = vi.spyOn(wavesms, 'makeRequest')
     })
 
     afterEach(() => {

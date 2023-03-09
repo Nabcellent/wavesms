@@ -4,30 +4,30 @@ import { Sms } from "../../../src/repositories/sms";
 import { WaveSMS } from "../../../src";
 import { ValidationErr } from "../../../src/exceptions/validation.err";
 
-let websms: WaveSMS, sms: Sms, makeRequest: SpyInstance;
+let wavesms: WaveSMS, sms: Sms, makeRequest: SpyInstance;
 const validPhone = 254110039317, invalidPhone = '82547123456789'
 
 describe('sms', () => {
     beforeAll(() => {
-        websms = new WaveSMS({
+        wavesms = new WaveSMS({
             apiKey: "apiKey",
             partnerId: 'partnerId',
             senderId: 'senderId'
         })
-        sms = websms.sms
-        makeRequest = vi.spyOn(websms, 'makeRequest')
+        sms = wavesms.sms
+        makeRequest = vi.spyOn(wavesms, 'makeRequest')
     })
 
     afterEach(() => {
         vi.restoreAllMocks();
 
-        websms = new WaveSMS({
+        wavesms = new WaveSMS({
             apiKey: "apiKey",
             partnerId: 'partnerId',
             senderId: 'senderId'
         })
-        sms = websms.sms
-        makeRequest = vi.spyOn(websms, 'makeRequest')
+        sms = wavesms.sms
+        makeRequest = vi.spyOn(wavesms, 'makeRequest')
     });
 
     describe('send', () => {
@@ -134,6 +134,46 @@ describe('sms', () => {
                         shortcode: 'senderId',
                         timeToSend: schedule.unix()
                     }]
+                }
+            })
+        });
+    })
+
+    describe('getDeliveryReport', () => {
+        it('should reject empty message ID', async () => {
+            expect(() => sms.getDeliveryReport('')).rejects.toThrow(ValidationErr)
+        });
+
+        it('should send SMS if data is valid.', async () => {
+            const messageId = 75085465
+            const request = makeRequest.mockResolvedValue({
+                "response-code": 200,
+                "response-description": "Success",
+                "message-id": messageId,
+                "delivery-status": 32,
+                "delivery-description": 'DeliveredToTerminal',
+                "delivery-tat": "00:00:06",
+                "delivery-networkid": 1,
+                "delivery-time": "2023-02-18 21:16:22"
+            })
+
+            const res = await sms.getDeliveryReport(messageId)
+
+            expect(res).toStrictEqual({
+                code: 200,
+                description: 'Success',
+                message_id: messageId,
+                delivery_status: 32,
+                delivery_description: 'DeliveredToTerminal',
+                delivery_tat: "00:00:06",
+                delivery_network_id: 1,
+                delivery_time: "2023-02-18 21:16:22"
+            })
+            expect(request).toHaveBeenNthCalledWith(1, {
+                url: '/services/getdlr', data: {
+                    apikey: 'apiKey',
+                    partnerID: 'partnerId',
+                    messageID: messageId
                 }
             })
         });

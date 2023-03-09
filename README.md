@@ -1,5 +1,26 @@
 # WaveSMS Api
 
+[![build status][build-badge]][build]
+[![code coverage][coverage-badge]][coverage]
+
+[![npm version][version-badge]][package]
+[![bundle size][minzip-badge]][bundlephobia]
+[![npm downloads][downloads-badge]][npmtrends]
+[![apache license][license-badge]][license]
+
+[build-badge]: https://img.shields.io/github/actions/workflow/status/nabcellent/wavesms/test.yml?branch=main&logo=github&style=flat-square
+[build]: https://github.com/nabcellent/wavesms/actions?query=workflow%3Avalidate
+[coverage-badge]: https://img.shields.io/codecov/c/github/nabcellent/wavesms.svg?style=flat-square
+[coverage]: https://codecov.io/github/nabcellent/wavesms/
+[version-badge]: https://img.shields.io/npm/v/@nabcellent/wavesms.svg?style=flat-square
+[package]: https://www.npmjs.com/package/@nabcellent/wavesms
+[minzip-badge]: https://img.shields.io/bundlephobia/minzip/@nabcellent/wavesms.svg?style=flat-square
+[bundlephobia]: https://bundlephobia.com/result?p=@nabcellent/wavesms
+[downloads-badge]: https://img.shields.io/npm/dm/@nabcellent/wavesms.svg?style=flat-square
+[npmtrends]: https://www.npmtrends.com/nabcellent/wavesms
+[license-badge]: https://img.shields.io/npm/l/@nabcellent/wavesms.svg?style=flat-square
+[license]: https://github.com/nabcellent/wavesms/blob/main/LICENSE
+
 This is a <i>Typescript</i> package that interfaces with the [WaveSMS](https://wavesms.com/) Api.
 The API enables you to initiate mobile Sms notifications.
 
@@ -69,11 +90,11 @@ const response = await wave.sms.getDeliveryReport("123456789")
     response_code: 200,
     message_id: "123456789",
     description: "Success",
-    "delivery-status": 32,
-    "delivery-description": "DeliveredToTerminal",
-    "delivery-tat": "00:00:06",
-    "delivery-networkid": 1,
-    "delivery-time": "2023-02-18 21:16:22"
+    delivery_status: 32,
+    delivery_description: "DeliveredToTerminal",
+    delivery_tat: "00:00:06",
+    delivery_networkid: 1,
+    delivery_time: "2023-02-18 21:16:22"
 }
 ```
 

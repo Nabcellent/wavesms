@@ -96,8 +96,8 @@ export class Sms {
 
         return {
             code: res["response-code"],
-            message_id: res['message-id'],
             description: res['response-description'],
+            message_id: res['message-id'],
             delivery_status: res["delivery-status"],
             delivery_description: res["delivery-description"],
             delivery_tat: res["delivery-tat"],
