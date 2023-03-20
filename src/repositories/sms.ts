@@ -77,6 +77,7 @@ export class Sms {
             code: r['response-code'],
             description: r['response-description'],
             mobile: r['mobile'],
+            cost: this.cost(this.#message),
             message_id: r['messageid'],
             client_sms_id: r['clientsmsid'],
             network_id: r['networkid']
@@ -86,7 +87,7 @@ export class Sms {
     getDeliveryReport = async (messageId: string | number): Promise<WaveSMSDeliveryReport> => {
         if (!messageId) throw new ValidationErr('Message ID is required.')
 
-        const res:WaveSMSRawDeliveryReport = await this.#client.makeRequest({
+        const res: WaveSMSRawDeliveryReport = await this.#client.makeRequest({
             url: '/services/getdlr', data: {
                 apikey: this.#client.config.apiKey,
                 partnerID: this.#client.config.partnerId,
@@ -104,5 +105,18 @@ export class Sms {
             delivery_network_id: res["delivery-networkid"],
             delivery_time: res["delivery-time"]
         }
+    }
+
+    public cost(text: string): number {
+        let cost = Number(process.env.WAVESMS_COST || .2);
+        const rawCost = (text.length * cost) / 160
+
+        if (rawCost > 0) {
+            cost = Math.ceil(rawCost / cost) * cost;
+        } else if (rawCost < 0) {
+            cost = Math.floor(rawCost / cost) * cost;
+        }
+
+        return Number(cost.toFixed(4))
     }
 }

@@ -34,6 +34,7 @@ export type WaveSMSResponse = {
     code: number,
     description: string,
     mobile: number
+    cost: number
     client_sms_id: number
     message_id?: number | string
     api_key?: string

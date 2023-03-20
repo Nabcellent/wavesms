@@ -69,7 +69,8 @@ describe('sms', () => {
                 message_id: 75085465,
                 client_sms_id: "1234",
                 network_id: "2",
-                mobile: "254733123456"
+                mobile: "254733123456",
+                cost: .2
             }])
             expect(request).toHaveBeenNthCalledWith(1, {
                 url: '/services/sendbulk', data: {
@@ -109,7 +110,8 @@ describe('sms', () => {
                 message_id: 75085465,
                 client_sms_id: "1234",
                 network_id: "2",
-                mobile: "254733123456"
+                mobile: "254733123456",
+                cost: .2,
             }])
             expect(request).toHaveReturnedWith({
                 responses: [{

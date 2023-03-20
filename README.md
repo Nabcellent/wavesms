@@ -98,6 +98,15 @@ const response = await wave.sms.getDeliveryReport("123456789")
 }
 ```
 
+#### 3. Calculate SMS Cost
+Provide the text message.
+```js
+const response = wave.sms.cost('Hello World.')
+
+//  Expected response(number)
+0.2
+```
+
 ---
 
 - ### Account
