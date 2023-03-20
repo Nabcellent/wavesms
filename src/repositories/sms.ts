@@ -108,15 +108,10 @@ export class Sms {
     }
 
     public cost(text: string): number {
+        console.log(`TEXT:\n"${text}"`, `\n\nLENGTH: ${text.length}`)
+
         let cost = Number(process.env.WAVESMS_COST || .2);
-        const rawCost = (text.length * cost) / 160
 
-        if (rawCost > 0) {
-            cost = Math.ceil(rawCost / cost) * cost;
-        } else if (rawCost < 0) {
-            cost = Math.floor(rawCost / cost) * cost;
-        }
-
-        return Number(cost.toFixed(4))
+        return Math.ceil(text.length / 160) * cost
     }
 }
