@@ -87,7 +87,7 @@ const response = await wave.sms.getDeliveryReport("123456789")
 
 //  Expected response
 {
-    response_code: 200,
+    code: 200,
     message_id: "123456789",
     description: "Success",
     delivery_status: 32,
