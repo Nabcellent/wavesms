@@ -21,7 +21,7 @@ export class WaveSMS {
     }
 
     makeRequest = async ({ url, method = 'post', data = {} }: { url: string, method?: 'get' | 'post', data?: any }) => {
-        log.info('...[WAVESMS] - Make Request:', { url, method, data })
+        log.info('...[WAVESMS] - REQ:', { url, method, data })
 
         const http = axios.create({
             baseURL: this.config.baseUrl,
@@ -31,8 +31,8 @@ export class WaveSMS {
             }
         });
 
-        return http[method](url, data).then(({ data }) => data).catch(e => {
-            if(e instanceof AxiosError) {
+        const res = http[method](url, data).then(({ data }) => data).catch(e => {
+            if (e instanceof AxiosError) {
                 if (e.response?.status === 422) {
                     throw new ValidationErr(e.response.data.errors)
                 }
@@ -46,5 +46,9 @@ export class WaveSMS {
 
             throw new BadRequestError(e.message || 'Something went wrong')
         })
+
+        log.info('...[WAVESMS] - RES:', { response: res })
+
+        return res
     }
 }

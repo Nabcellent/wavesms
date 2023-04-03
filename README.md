@@ -87,7 +87,7 @@ const response = await wave.sms.getDeliveryReport("123456789")
 
 //  Expected response
 {
-    response_code: 200,
+    code: 200,
     message_id: "123456789",
     description: "Success",
     delivery_status: 32,
@@ -96,6 +96,15 @@ const response = await wave.sms.getDeliveryReport("123456789")
     delivery_networkid: 1,
     delivery_time: "2023-02-18 21:16:22"
 }
+```
+
+#### 3. Calculate SMS Cost
+Provide the text message.
+```js
+const response = wave.sms.cost('Hello World.')
+
+//  Expected response(number)
+0.2
 ```
 
 ---
