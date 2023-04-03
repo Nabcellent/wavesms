@@ -108,7 +108,7 @@ export class Sms {
     }
 
     public cost(text: string): number {
-        console.log(`TEXT:\n"${text}"`, `\n\nLENGTH: ${text.length}`)
+        // console.log(`TEXT:\n"${text}"`, `\n\nLENGTH: ${text.length}`)
 
         let cost = Number(process.env.WAVESMS_COST || .2);
 
