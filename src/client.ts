@@ -32,7 +32,7 @@ export class WaveSMS {
         });
 
         const res = http[method](url, data).then(({ data }) => data).catch(e => {
-            if(e instanceof AxiosError) {
+            if (e instanceof AxiosError) {
                 if (e.response?.status === 422) {
                     throw new ValidationErr(e.response.data.errors)
                 }
@@ -47,7 +47,7 @@ export class WaveSMS {
             throw new BadRequestError(e.message || 'Something went wrong')
         })
 
-        log.info('...[WAVESMS] - RES:', { url, method, data })
+        log.info('...[WAVESMS] - RES:', { response: res })
 
         return res
     }
